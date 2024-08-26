@@ -110,7 +110,7 @@ a {
   bottom: -1200px;
   right: 10px;
   width: 70%;
-  height: 560px;
+  height: 90%;
   padding: 2em;
   background-color: #ffffff;
   color: #000;
@@ -121,6 +121,8 @@ a {
   transform: translateZ(0) rotate(20deg);
   transform-origin: bottom center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+  margin-bottom: 5px;
 }
 
 .overlay::-webkit-scrollbar {
