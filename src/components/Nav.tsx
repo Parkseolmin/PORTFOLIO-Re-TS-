@@ -8,7 +8,7 @@ export default function Nav({ onAboutClick, showAbout }: NavProps) {
     <nav className='nav'>
       <p>PORTFOLIO .</p>
       <p onClick={onAboutClick} style={{ cursor: 'pointer' }}>
-        ABOUT
+        저란 사람은?
         {showAbout ? (
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -16,7 +16,7 @@ export default function Nav({ onAboutClick, showAbout }: NavProps) {
             viewBox='0 0 24 24'
             strokeWidth={4.5}
             stroke='currentColor'
-            className='size-6'
+            className='size-6 arrow-up'
           >
             <path
               strokeLinecap='round'
@@ -31,7 +31,7 @@ export default function Nav({ onAboutClick, showAbout }: NavProps) {
             viewBox='0 0 24 24'
             strokeWidth={4.5}
             stroke='currentColor'
-            className='size-6'
+            className='size-6 arrow-down'
           >
             <path
               strokeLinecap='round'

@@ -11,9 +11,10 @@ export default function ItemList({ items, onItemClick }: ItemListProps) {
       <span
         style={{
           borderBottom: '2px solid white',
-          width: '140px',
+          width: '170px',
           cursor: 'default',
           marginBottom: '10px',
+          fontSize: '1.5rem',
         }}
       >
         PROJECTS WEB
@@ -21,7 +22,9 @@ export default function ItemList({ items, onItemClick }: ItemListProps) {
       {items.map((item, index) => (
         <div key={index} className='item' onClick={() => onItemClick(item)}>
           <div className='item-index'>{String(index + 1).padStart(2, '0')}</div>
-          <div className='item-name'>{item.itemName}</div>
+          <div className='item-name' style={{ textTransform: 'uppercase' }}>
+            {item.projectName}
+          </div>
         </div>
       ))}
     </div>
