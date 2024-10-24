@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
 import { Projects } from '../assets/data/data';
-import gsap from 'gsap';
+import ScrollToTopBtn from './ScrollToTopBtn';
+import useOverlayAnimation from '../hooks/useOverlayAnimation';
+import { useEffect, useRef } from 'react';
 
 interface OverlayProps {
   item: Projects | null;
@@ -15,28 +16,9 @@ export default function Overlay({
   isClosing,
   onClose,
 }: OverlayProps) {
-  const overlayRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const overlay = overlayRef.current;
-    if (isOpen && !isClosing) {
-      gsap.to(overlay, {
-        duration: 0.5,
-        bottom: '0px',
-        rotation: 0,
-        transformOrigin: 'bottom center',
-        ease: 'power3.inOut',
-      });
-    } else if (isClosing) {
-      gsap.to(overlay, {
-        duration: 0.5,
-        bottom: '-100%',
-        rotation: 0,
-        transformOrigin: 'bottom center',
-        ease: 'power3.inOut',
-      });
-    }
-  }, [isOpen, isClosing]);
+  const overlayRef = useOverlayAnimation({ isOpen, isClosing });
+  const mainVideoRef = useRef<HTMLVideoElement | null>(null); // 비디오 참조 추가
+  const functionVideoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   // 스크롤 이동 함수 (Overlay 컴포넌트 내에서)
   const scrollToTop = () => {
@@ -48,14 +30,28 @@ export default function Overlay({
     }
   };
 
+  // item이 변경되면 모든 비디오 다시 로드
+  useEffect(() => {
+    if (mainVideoRef.current) {
+      mainVideoRef.current.load(); // 메인 비디오 로드
+    }
+
+    functionVideoRefs.current.forEach((video) => {
+      if (video) {
+        video.load(); // 세부 기능 비디오들 로드
+      }
+    });
+  }, [item]);
+
   if (!item) return null;
+
   return (
     <div className='overlay' ref={overlayRef}>
       <div className='overlay-header'>
         <div className='col'>
           <p>{item.projectName}</p>
           <p>Key Technologies</p>
-          <p>{item.itemCategory}</p>
+          <p>{item.projectTech}</p>
         </div>
         <div className='col'>
           <p id='close-btn' onClick={onClose}>
@@ -63,9 +59,10 @@ export default function Overlay({
           </p>
         </div>
       </div>
+
       <div className='item-details'>
         <p style={{ display: 'flex', gap: '20px' }}>
-          <a href={item.itemLink} target='_blank' rel='noopener noreferrer'>
+          <a href={item.projectLink} target='_blank' rel='noopener noreferrer'>
             <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
               <path
                 d='m0 0h24v24h-24z'
@@ -80,13 +77,14 @@ export default function Overlay({
             </svg>
             View Site
           </a>
-          <a href={item.itemLink} target='_blank' rel='noopener noreferrer'>
+          <a href={item.projectBlog} target='_blank' rel='noopener noreferrer'>
+            {' '}
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
               <path d='M15.6 18.196c-.777.371-1.48.631-2.109.781a8.92 8.92 0 0 1-2.043.223c-.831 0-1.566-.107-2.205-.318a4.757 4.757 0 0 1-1.635-.908c-.451-.395-.764-.812-.938-1.254-.174-.443-.261-1.086-.261-1.926V8.339H4.4V5.735c.714-.234 1.326-.57 1.835-1.01a5.04 5.04 0 0 0 1.227-1.58c.308-.613.519-1.396.636-2.345h2.585v4.652h4.314v2.887h-4.314v4.719c0 1.066.056 1.752.168 2.055.111.303.319.545.622.725.403.244.863.367 1.381.367.92 0 1.836-.303 2.746-.908v2.899z' />
             </svg>
-            Blog Site
+            Blog Doc
           </a>
-          <a href={item.itemLink} target='_blank' rel='noopener noreferrer'>
+          <a href={item.projectGit} target='_blank' rel='noopener noreferrer'>
             <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
               <path
                 d='m0 0h24v24h-24z'
@@ -99,54 +97,70 @@ export default function Overlay({
                 fill='#231f20'
               />
             </svg>
-            Git Hub
+            GitHub
           </a>
         </p>
-        <p style={{ textAlign: 'justify', padding: '0 10px' }}>
-          {item.itemCopy}
+        <p style={{ textAlign: 'justify' }}>
+          - Project Intro
+          <br />
+          {item.projectIntro}
         </p>
       </div>
+
+      {/* 프로젝트 비디오 섹션 */}
       <div className='img-container'>
-        {item.itemImg.map((imgSrc, index) => (
-          <img
+        <video
+          ref={mainVideoRef}
+          controls
+          autoPlay
+          muted
+          loop
+          width='100%'
+          style={{
+            display: 'flex',
+            margin: '0 auto',
+          }}
+        >
+          <source src={item.introVideo} type='video/mp4' />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      {/* 프로젝트 세부 기능 설명 및 비디오 */}
+      <div className='itemDetailVideo'>
+        {item.projectFunVideo?.map((video, index) => (
+          <video
             key={index}
-            src={imgSrc}
-            alt={`${item.projectName} image ${index + 1}`}
+            ref={(el) => (functionVideoRefs.current[index] = el)}
+            controls
+            autoPlay
+            muted
+            loop
+            width='49%'
             style={{
-              marginBottom: '10px',
+              display: 'flex',
+              margin: '0 auto',
             }}
-          />
+          >
+            <source src={video} type='video/mp4' />
+            Your browser does not support the video tag.
+          </video>
         ))}
       </div>
-      <div className='arrowbox' onClick={scrollToTop}>
-        {/* arrowbox 클릭 시 scrollToTop 호출 */}
-        <button
-          className='overlayArrow'
-          aria-label='button for raising the screen'
-        >
-          <svg
-            width='40'
-            height='40'
-            strokeWidth='1.5'
-            viewBox='0 0 24 24'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M15.5 16.5L12 13L8.5 16.5'
-              stroke='currentColor'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-            />
-            <path
-              d='M15.5 10.5L12 7L8.5 10.5'
-              stroke='currentColor'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-            />
-          </svg>
-        </button>
+
+      <div className='detailContainer'>
+        <p style={{ textAlign: 'justify', padding: '10px 10px' }}>
+          - Project Function
+        </p>
+        {item.projectDetails?.map((detail, index) => (
+          <div key={index} className='detailContents'>
+            <p>{detail.title}</p>
+            <p>- {detail.description}</p>
+          </div>
+        ))}
       </div>
+
+      <ScrollToTopBtn handleClick={scrollToTop} />
     </div>
   );
 }

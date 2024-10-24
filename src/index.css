@@ -87,7 +87,7 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .nav p:nth-child(2) > svg {
@@ -139,7 +139,7 @@ button {
   right: 10px;
   width: 70%;
   height: 90%;
-  padding: 2em;
+  padding: 2em 3em 4em;
   background-color: #ffffff;
   color: #1a1a1a;
   overflow-x: hidden;
@@ -254,6 +254,12 @@ img {
   font-family: 'GowunBatang-Bold';
 }
 
+.itemDetailVideo {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
 .about {
   width: 70%;
   height: 100%;
@@ -283,6 +289,12 @@ p {
   font-size: 1.3rem;
   line-height: 1.9;
   word-spacing: 1.3px;
+}
+
+.about-container > div > p > span {
+  color: #4b4b4b;
+  font-size: 1.5rem;
+  font-weight: bolder;
 }
 
 .about-skills {
@@ -317,6 +329,14 @@ p {
 
 .gif-container > img {
   width: 120px;
+}
+
+.momentum-detail {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 10px;
 }
 
 /* CSS */
@@ -363,6 +383,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .overlayArrow {
@@ -382,11 +403,33 @@ p {
   height: 30px;
 }
 
+.func-container {
+  font-family: 'GowunBatang-Regular';
+  color: #4b4b4b;
+}
+
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.detailContents {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  line-height: 2;
+  text-align: justify;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
 @media (max-width: 900px) {
   .overlay {
     width: 100%;
     height: 100vh;
     right: 0;
+    padding: 1em 2.5em 2.5em;
   }
   .gif-container > img {
     width: 80px;
@@ -406,6 +449,9 @@ p {
     padding: 2em 0;
     flex-direction: column;
     gap: 20px;
+  }
+  .itemDetailVideo {
+    row-gap: 3px;
   }
 }
 
@@ -435,6 +481,17 @@ p {
     font-size: 1.3rem;
   }
   .about .about-container > div > p {
+    font-size: 1rem;
+  }
+
+  .detailContents {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    line-height: 1.7;
+    text-align: justify;
+    letter-spacing: 0px;
+    margin-bottom: 1.5rem;
     font-size: 1rem;
   }
 }
