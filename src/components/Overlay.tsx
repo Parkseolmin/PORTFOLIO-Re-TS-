@@ -115,6 +115,7 @@ export default function Overlay({
           autoPlay
           muted
           loop
+          preload='auto'
           width='100%'
           style={{
             display: 'flex',
@@ -130,6 +131,7 @@ export default function Overlay({
       <div className='itemDetailVideo'>
         {item.projectFunVideo?.map((video, index) => (
           <video
+            preload='auto'
             key={index}
             ref={(el) => (functionVideoRefs.current[index] = el)}
             controls

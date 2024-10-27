@@ -1,31 +1,31 @@
 @font-face {
   font-family: 'Aeonik';
-  src: url('../public/font/AeonikTRIAL-Bold.otf') format('opentype');
+  src: url('/font/AeonikTRIAL-Bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Aeonik';
-  src: url('../public/font/AeonikTRIAL-Light.otf') format('opentype');
+  src: url('/font/AeonikTRIAL-Light.otf') format('opentype');
   font-weight: 300; /* Light weight */
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Aeonik';
-  src: url('../public/font/AeonikTRIAL-Regular.otf') format('opentype');
+  src: url('/font/AeonikTRIAL-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GowunBatang-Regular';
-  src: url('../public/font/GowunBatang-Regular.ttf') format('truetype');
+  src: url('/font/GowunBatang-Regular.ttf') format('truetype');
 }
 @font-face {
   font-family: 'GowunBatang-Bold';
-  src: url('../public/font/GowunBatang-Bold.ttf') format('truetype');
+  src: url('/font/GowunBatang-Bold.ttf') format('truetype');
 }
 
 * {
