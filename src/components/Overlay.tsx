@@ -1,7 +1,7 @@
 import { Projects } from '../assets/data/data';
 import ScrollToTopBtn from './ScrollToTopBtn';
 import useOverlayAnimation from '../hooks/useOverlayAnimation';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 interface OverlayProps {
   item: Projects | null;
@@ -21,27 +21,30 @@ export default function Overlay({
   const functionVideoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   // 스크롤 이동 함수 (Overlay 컴포넌트 내에서)
-  const scrollToTop = () => {
+  const scrollToTop = useCallback(() => {
     if (overlayRef.current) {
       overlayRef.current.scrollTo({
         top: 0,
         behavior: 'smooth', // 부드러운 스크롤 이동
       });
     }
-  };
+  }, [overlayRef]);
 
   // item이 변경되면 모든 비디오 다시 로드
   useEffect(() => {
-    if (mainVideoRef.current) {
-      mainVideoRef.current.load(); // 메인 비디오 로드
-    }
-
-    functionVideoRefs.current.forEach((video) => {
-      if (video) {
-        video.load(); // 세부 기능 비디오들 로드
+    if (item) {
+      if (mainVideoRef.current) {
+        mainVideoRef.current.load(); // 메인 비디오 로드
       }
-    });
-  }, [item]);
+
+      functionVideoRefs.current.forEach((video) => {
+        if (video) {
+          video.load(); // 세부 기능 비디오들 로드
+        }
+      });
+      scrollToTop();
+    }
+  }, [item, isOpen, scrollToTop]);
 
   if (!item) return null;
 
