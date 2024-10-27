@@ -7,7 +7,7 @@ export default function GifGalleryDev() {
   return (
     <div className='gif-container'>
       {gifArray.map((gif, index) => (
-        <img key={index} src={gif} alt={`gif-${index}`} />
+        <img key={index} src={gif} alt={`gif-${index}`} loading='eager' />
       ))}
     </div>
   );
