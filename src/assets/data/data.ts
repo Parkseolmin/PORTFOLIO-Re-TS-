@@ -128,7 +128,7 @@ export const data: Projects[] = [
   {
     projectName: 'F.ROCK Web App',
     projectTech: 'React | Cloudinary | React Query | Firebase | Tailwind',
-    projectLink: 'https://www.naver.com/',
+    projectLink: 'https://react-r-frock.vercel.app/',
     projectBlog: 'https://snowman-seolmini.tistory.com/85',
     projectGit: 'https://github.com/Parkseolmin/React_R.FROCK',
     projectIntro:
