@@ -1,8 +1,7 @@
-# 포트폴리오😭
-
-<p align="center"><img src="https://github.com/user-attachments/assets/46388765-acd7-4c60-94fe-806e41bb4077" alt="Momentum이미지" width="300"/></p>
-<p align="center">배포 URL : <a href="https://portfolio-re-ts.vercel.app/" target="_blank">https://portfolio-re-ts.vercel.app/</a></p>
+# 포트폴리오
 <br>
+<div align="center"><img width="350" alt="profile" src="https://github.com/user-attachments/assets/da710b22-fe74-4298-af3b-afff7934c2e8"></div>
+<p align="center">배포 URL : <a href="https://portfolio-re-ts.vercel.app/" target="_blank">https://portfolio-re-ts.vercel.app/</a></p>
 
 ## 목차
 1. [소개](#소개)
