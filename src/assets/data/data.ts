@@ -67,8 +67,7 @@ export const data: Projects[] = [
       },
       {
         title: '4. 할 일 목록: useReducer 및 Context API를 사용한 상태 관리',
-        description:
-          '추가, 업데이트 및 삭제 기능을 갖춘 완전한 기능의 할 일 목록입니다.',
+        description: '추가, 업데이트 및 삭제 기능을 갖춘 할 일 목록입니다.',
       },
       {
         title:
@@ -90,7 +89,7 @@ export const data: Projects[] = [
     projectBlog: 'https://snowman-seolmini.tistory.com/84',
     projectGit: 'https://github.com/Parkseolmin/React_Youtube',
     projectIntro:
-      'React와 JavaScript를 학습하면서 비동기 처리에 중점을 둔 파지직TV를 제작했습니다. 단순히 YouTube Open API로 비디오 데이터를 보여주는 것이 아닌, 다양한 기능을 추가하여 사용자 경험을 향상시켰습니다. TanStack/React Query를 사용해 "더보기" 기능을 구현해 비디오 데이터를 지속적으로 로드할 수 있게 하고, mock 데이터를 이용한 데이터 캐싱으로 API 호출 제한 문제를 해결했습니다. 또한, 다양한 비동기 요청을 효율적으로 관리하기 위해 싱글톤 패턴을 적용해 객체 관리를 최적화했습니다. Firebase OAuth 2.0을 활용해 실제 YouTube 계정 정보로 로그인하는 기능도 구현했습니다. 프로젝트 과정에서 반복적인 리팩토링과 새로운 기능 추가를 통해 React의 유연성을 깊이 이해하게 되었으며, 이 프로젝트는 제 개발 역량을 크게 향상시켰습니다.',
+      'React와 JavaScript를 학습하면서 비동기 처리에 중점을 둔 파지직TV를 제작했습니다. 단순히 YouTube Open API로 비디오 데이터를 보여주는 것이 아닌, 다양한 기능을 추가하여 사용자 경험을 향상시켰습니다. TanStack/React Query를 사용해 "더보기" 기능을 구현해 비디오 데이터를 지속적으로 로드할 수 있게 하고, mock 데이터를 이용한 데이터 캐싱으로 API 호출 제한 문제를 해결했습니다. 또한, 다양한 비동기 요청을 효율적으로 관리하기 위해 싱글톤 패턴을 적용해 객체 관리를 최적화했습니다. Firebase OAuth 2.0을 활용해 실제 YouTube 계정 정보로 로그인하는 기능도 구현했습니다. 프로젝트 과정에서 반복적인 리팩토링과 새로운 기능 추가를 통해 React의 유연성을 깊이 이해하게 되었으며, 이 프로젝트는 개발 역량을 크게 향상시켰습니다.',
     introVideo: '/img/pazizic/pazizic.mp4',
     projectFunVideo: pazizicFuncVideos,
     projectDetails: [
@@ -133,7 +132,7 @@ export const data: Projects[] = [
     projectBlog: 'https://snowman-seolmini.tistory.com/85',
     projectGit: 'https://github.com/Parkseolmin/React_R.FROCK',
     projectIntro:
-      '이것은 쇼핑몰Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint recusandae optio quae cumque vel temporibus possimus deleniti magni ratione illo expedita tenetur, ullam nesciunt odit ut saepe ipsa odio ipsum!',
+      'F.ROCK 쇼핑몰은 Firebase의 Realtime Database를 활용해 구축한 프로젝트로, 관리자와 일반 사용자를 구분하고, 장바구니 기능에서는 TanStack/React Query의 mutation 기능을 활용해 즉각적인 업데이트와 원활한 상태 관리를 구현하였습니다. 이를 통해 사용자에게 더욱 매끄러운 쇼핑 경험을 제공할 수 있었습니다. 이 프로젝트 과정에서 비동기 처리와 상태 관리를 한층 더 깊이 이해하게 되었습니다.',
     introVideo: '/img/frock/frock.mp4',
     projectDetails: [
       {
