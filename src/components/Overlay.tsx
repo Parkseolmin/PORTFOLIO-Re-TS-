@@ -25,7 +25,6 @@ export default function Overlay({
     if (overlayRef.current) {
       overlayRef.current.scrollTo({
         top: 0,
-        behavior: 'smooth', // 부드러운 스크롤 이동
       });
     }
   }, [overlayRef]);

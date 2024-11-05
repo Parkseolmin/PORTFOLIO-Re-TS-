@@ -8,7 +8,7 @@ export default function Nav({ onAboutClick, showAbout }: NavProps) {
     <nav className='nav'>
       <p>PORTFOLIO .</p>
       <p onClick={onAboutClick} style={{ cursor: 'pointer' }}>
-        저란 사람은?
+        저란 사람은...
         {showAbout ? (
           <svg
             xmlns='http://www.w3.org/2000/svg'
