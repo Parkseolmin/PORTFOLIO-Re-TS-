@@ -111,6 +111,7 @@ export default function Overlay({
 
       {/* 프로젝트 비디오 섹션 */}
       <div className='img-container'>
+        <p>Main Video</p>
         <video
           ref={mainVideoRef}
           controls
@@ -130,6 +131,7 @@ export default function Overlay({
       </div>
 
       {/* 프로젝트 세부 기능 설명 및 비디오 */}
+      {item?.projectFunVideo ? <p>Detail Video</p> : ''}
       <div className='itemDetailVideo'>
         {item.projectFunVideo?.map((video, index) => (
           <video
@@ -140,7 +142,7 @@ export default function Overlay({
             autoPlay
             muted
             loop
-            width='49%'
+            width='50%'
             style={{
               display: 'flex',
               margin: '0 auto',

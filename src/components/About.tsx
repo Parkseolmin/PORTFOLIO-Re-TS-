@@ -1,4 +1,5 @@
-import { skillsIcons } from '../assets/data/about';
+// import { skillsIcons } from '../assets/data/about';
+import { skills } from '../assets/data/skills';
 import GifGalleryDev from './GifGalleryDev';
 import GifGalleryGoals from './GifGalleryGoals';
 export default function About() {
@@ -25,15 +26,31 @@ export default function About() {
         </div>
         <div>
           <h1>기술 스택</h1>
-          <div className='about-skills'>
-            {skillsIcons.map((skill, index) => (
-              <div key={index}>
-                <div dangerouslySetInnerHTML={{ __html: skill.svg }} />
-                <h4>{skill.iconName}</h4>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '10px',
+              justifyContent: 'center',
+            }}
+          >
+            {Object.entries(skills).map(([category, items]) => (
+              <div
+                key={category}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '10px',
+                  textAlign: 'start',
+                }}
+              >
+                <h2 style={{ color: '#1919197d' }}>
+                  {category.charAt(0).toUpperCase() + category.slice(1)} :
+                </h2>
+                <p style={{ fontSize: '1.1rem' }}> {items.join(', ')}</p>
               </div>
             ))}
           </div>
-          <br />
         </div>
         <div>
           <h1>개발 철학 및 학습 방법</h1>
