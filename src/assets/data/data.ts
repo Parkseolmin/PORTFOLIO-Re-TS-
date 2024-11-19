@@ -32,21 +32,20 @@ export interface Projects {
   learnedPoint?: string[];
 }
 
-export const momentumFuncVideos = [
+const momentumFuncVideos = [
   '/img/momentum/home.mp4',
   '/img/momentum/pomodoroFunc.mp4',
   '/img/momentum/TodoFunc.mp4',
   '/img/momentum/gptFunc.mp4',
 ];
 
-export const pazizicFuncVideos = [
+const pazizicFuncVideos = [
   '/img/pazizic/videoDetail.mp4',
   '/img/pazizic/playList.mp4',
   '/img/pazizic/savedVideo.mp4',
   '/img/pazizic/login.mp4',
 ];
-
-export const frockFuncVideos = ['/img/frock/frockmobile.mp4'];
+const frockFuncVideos = ['/img/frock/management.mp4', '/img/frock/payment.mp4'];
 
 export const data: Projects[] = [
   {
@@ -238,6 +237,7 @@ export const data: Projects[] = [
     projectIntro:
       'F.ROCK 쇼핑몰은 사용자 인증, 이미지 업로드 최적화, 실시간 장바구니 관리 및 결제 시스템을 통합한 프론트엔드 개인 프로젝트입니다. Firebase Authentication을 통해 관리자의 권한을 설정하고, Cloudinary API를 사용하여 업로드된 이미지를 최적화하여 성능을 개선했습니다. React Query를 활용해 장바구니의 실시간 상태를 관리하며, PortOne SDK를 통해 안전한 결제 처리를 구현했습니다.',
     introVideo: '/img/frock/frock.mp4',
+    projectFunVideo: frockFuncVideos,
     projectDetails: [
       {
         title: 'UI/UX 구축',
@@ -297,27 +297,13 @@ export const data: Projects[] = [
         descriptions: [
           {
             ProblemSituation:
-              '장바구니 상품 수량 변경 시 UI가 즉시 업데이트되지 않아',
+              '장바구니 상품 수량 변경 시 UI가 즉시 업데이트되지 않음.',
             ProblemSolution: [
               'React Query의 invalidateQueries를 사용하여 장바구니 데이터를 업데이트하도록 설정.',
               'Firebase의 onValue 메서드를 활용한 실시간 데이터 구독 기능 확인',
             ],
             ProblemResult:
               '장바구니 데이터가 변경될 때 UI가 즉시 업데이트되며 실시간 반응형 인터페이스 구현.',
-          },
-        ],
-      },
-      {
-        title: '3. OAuth2.0 토큰 갱신 문제',
-        descriptions: [
-          {
-            ProblemSituation:
-              'Firebase를 통해 Google OAuth2.0 토큰을 얻어 YouTube 사용자 정보를 불러오는 데 성공했으나, 토큰의 제한 시간(expiration time)으로 인해 일정 시간이 지나면 인증이 만료되는 문제가 발생. 리프레시 토큰이나 서버 측 처리가 필요한 방법은 프론트엔드에서 구현하기 어려웠음.',
-            ProblemSolution: [
-              'Google API 클라이언트를 활용한 gapi 라이브러리를 사용해 유효 토큰을 직접적으로 갱신하는 방안을 도입.',
-            ],
-            ProblemResult:
-              '인증 토큰의 유효성을 유지하여 사용자가 끊김 없이 YouTube 데이터를 탐색할 수 있도록 개선.',
           },
         ],
       },
