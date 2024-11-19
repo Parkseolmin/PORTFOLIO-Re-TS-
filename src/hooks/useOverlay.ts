@@ -1,5 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { Projects } from '../assets/data/data';
+
+const ANIMATION_DURATION = 500;
 
 interface UseOverlayReturn {
   selectedItem: Projects | null;
@@ -11,24 +13,19 @@ interface UseOverlayReturn {
 
 export default function useOverlay(): UseOverlayReturn {
   const [selectedItem, setSelectedItem] = useState<Projects | null>(null);
-  const [isOverlayOpen, setIsOverlayOpen] = useState<boolean>(false);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [pendingItem, setPendingItem] = useState<Projects | null>(null);
 
   // 오버레이를 여는 함수
   const showOverlay = useCallback(
     (item: Projects) => {
       if (isOverlayOpen) {
-        // 이미 오버레이가 열려있다면, 닫는 애니메이션을 시작
-        setIsClosing(true);
-        // 애니메이션이 끝나면 새 아이템으로 오버레이를 열기
-        setTimeout(() => {
-          setSelectedItem(item);
-          setIsClosing(false);
-        }, 500); // 500ms는 GSAP 애니메이션 duration과 일치시켜야 합니다
+        setPendingItem(item); // 새 아이템 저장
+        setIsClosing(true); // 닫기 애니메이션 시작
       } else {
-        // 오버레이가 닫혀있다면, 바로 열기
-        setSelectedItem(item);
-        setIsOverlayOpen(true);
+        setSelectedItem(item); // 바로 아이템 설정
+        setIsOverlayOpen(true); // 열기
       }
     },
     [isOverlayOpen]
@@ -37,12 +34,28 @@ export default function useOverlay(): UseOverlayReturn {
   // 오버레이를 닫는 함수
   const hideOverlay = useCallback(() => {
     setIsClosing(true);
-    setTimeout(() => {
-      setIsOverlayOpen(false);
-      setIsClosing(false);
-      setSelectedItem(null);
-    }, 500);
   }, []);
+
+  // 닫힘 애니메이션이 끝난 후 상태 처리
+  useEffect(() => {
+    if (isClosing) {
+      const timer = setTimeout(() => {
+        setIsClosing(false);
+        setIsOverlayOpen(false);
+
+        if (pendingItem) {
+          // pendingItem이 있으면 자동으로 열기
+          setSelectedItem(pendingItem);
+          setIsOverlayOpen(true); // 자동 열림
+          setPendingItem(null);
+        } else {
+          setSelectedItem(null); // 초기화
+        }
+      }, ANIMATION_DURATION);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isClosing, pendingItem]);
 
   return { selectedItem, isOverlayOpen, isClosing, showOverlay, hideOverlay };
 }

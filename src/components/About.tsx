@@ -45,9 +45,12 @@ export default function About() {
                 }}
               >
                 <h2 style={{ color: '#1919197d' }}>
-                  {category.charAt(0).toUpperCase() + category.slice(1)} :
+                  {category
+                    .replace(/([A-Z])/g, ' $1') // 카멜 케이스를 공백으로 분리
+                    .replace(/^./, (str) => str.toUpperCase())}{' '}
+                  :
                 </h2>
-                <p style={{ fontSize: '1.1rem' }}> {items.join(', ')}</p>
+                <p style={{ fontSize: '1.1rem' }}>{items.join(', ')}</p>
               </div>
             ))}
           </div>

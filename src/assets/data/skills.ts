@@ -1,17 +1,19 @@
 interface Skills {
-  core: string[];
+  programmingLanguages: string[];
+  frameworksAndLibraries: string[];
   stateManagement: string[];
   styling: string[];
-  testing: string[];
-  tools: string[];
-  performanceOptimization: string[];
+  TestingDebugging: string[];
+  DevelopmentTools: string[];
+  ProductivityTools: string[];
 }
 
 export const skills: Skills = {
-  core: ['JavaScript', 'TypeScript', 'React', 'Next.js'],
-  stateManagement: ['Redux Toolkit', 'Zustand', 'React Query'],
+  programmingLanguages: ['JavaScript(ES6+)', 'TypeScript'],
+  frameworksAndLibraries: ['React', 'Next.js'],
+  stateManagement: ['Context API', 'Zustand', 'React Query', 'Redux Toolkit'],
   styling: ['CSS', 'SCSS', 'TailwindCSS', 'Styled-Components'],
-  testing: ['Jest'],
-  tools: ['Firebase', 'Git & GitHub', 'Notion', 'Discord', 'Slack', 'Figma'],
-  performanceOptimization: ['Lighthouse', 'React Profiler '],
+  TestingDebugging: ['Jest', 'React DevTools', 'Lighthouse'],
+  DevelopmentTools: ['GitHub', 'Firebase', 'Figma'],
+  ProductivityTools: ['Notion', 'Discord', 'Slack', 'Figma'],
 };
