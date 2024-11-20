@@ -6,9 +6,6 @@ const OverlayDetails = React.memo(function OverlayDetails({
 }: OverlayComponentProps) {
   return (
     <div className='overlay-videoSection__detail'>
-      <p>
-        <span>- Project Function</span>
-      </p>
       {item?.projectDetails?.map((detail, index) => (
         <div key={index} className='detail__section'>
           <p>* {detail.title}</p>

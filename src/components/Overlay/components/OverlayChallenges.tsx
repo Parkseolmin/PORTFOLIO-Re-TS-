@@ -8,7 +8,7 @@ const OverlayChallenges = React.memo(function OverlayChallenges({
     <div className='detailContainer'>
       <p style={{ textAlign: 'justify', paddingBottom: '10px' }}>
         <span style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
-          - Project Problem
+          - 프로젝트 중 직면한 문제와 해결책
         </span>
       </p>
       {item?.challenges?.map((challenge, index) => (
@@ -16,20 +16,25 @@ const OverlayChallenges = React.memo(function OverlayChallenges({
           <p>* {challenge.title}</p>
           {challenge.descriptions.map((description, idx) => (
             <div key={idx} style={{ marginLeft: '20px', marginBottom: '15px' }}>
-              <p>- 문제</p>
-              <p>{description.ProblemSituation}</p>
+              <div style={{ margin: '10px 0' }}>
+                <p style={{ fontSize: '1.1rem' }}>- Problem</p>
+                <p>{description.ProblemSituation}</p>
+              </div>
+              <div style={{ margin: '10px 0' }}>
+                <p style={{ fontSize: '1.1rem' }}>- Solution</p>
+                <ul>
+                  {description.ProblemSolution.map((step, stepIdx) => (
+                    <p key={stepIdx}>
+                      {stepIdx + 1}. {step}
+                    </p>
+                  ))}
+                </ul>
+              </div>
 
-              <p>- 해결 단계</p>
-              <ul>
-                {description.ProblemSolution.map((step, stepIdx) => (
-                  <p key={stepIdx}>
-                    {stepIdx + 1}. {step}
-                  </p>
-                ))}
-              </ul>
-
-              <p>- 결과</p>
-              <p>{description.ProblemResult}</p>
+              <div style={{ margin: '10px 0' }}>
+                <p style={{ fontSize: '1.1rem' }}>- Result</p>
+                <p>{description.ProblemResult}</p>
+              </div>
             </div>
           ))}
         </div>

@@ -111,7 +111,7 @@ export default function Overlay({
 
       {/* 프로젝트 배운점 */}
       <div className='learnedPoint'>
-        <p>알게 된 점</p>
+        <p style={{ fontSize: '1.1rem' }}>Key Learnings</p>
         {item?.learnedPoint?.map((point, index) => (
           <p key={index}>- {point}</p>
         ))}
