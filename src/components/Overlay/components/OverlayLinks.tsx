@@ -46,7 +46,7 @@ const OverlayLinks = React.memo(function OverlayLinks({
         </a>
       </p>
       <p>
-        <span>- Project Intro</span>
+        <span>- Intro</span>
         <br />
         {item?.projectIntro}
       </p>
