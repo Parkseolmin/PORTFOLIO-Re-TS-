@@ -8,17 +8,7 @@ interface ItemListProps {
 export default function ItemList({ items, onItemClick }: ItemListProps) {
   return (
     <div className='items'>
-      <span
-        style={{
-          borderBottom: '2px solid white',
-          width: '170px',
-          cursor: 'default',
-          marginBottom: '10px',
-          fontSize: '1.5rem',
-        }}
-      >
-        PROJECTS WEB
-      </span>
+      <span>PROJECTS WEB</span>
       {items.map((item, index) => (
         <div key={index} className='item' onClick={() => onItemClick(item)}>
           <div className='item-index'>{String(index + 1).padStart(2, '0')}</div>

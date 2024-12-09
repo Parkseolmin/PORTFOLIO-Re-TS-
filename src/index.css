@@ -1,20 +1,12 @@
 @font-face {
   font-family: 'Aeonik';
-  src: url('/font/AeonikTRIAL-Bold.otf') format('opentype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aeonik';
-  src: url('/font/AeonikTRIAL-Light.otf') format('opentype');
-  font-weight: 300; /* Light weight */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aeonik';
   src: url('/font/AeonikTRIAL-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'nanumSquareNeo';
+  src: url('/font/nanumSquareNeo-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -38,7 +30,9 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  font-family: 'Aeonik', sans-serif;
+  /* font-family: 'Aeonik', sans-serif; */
+  /* font-family: 'GowunBatang-Bold'; */
+  font-family: 'nanumSquareNeo';
   background-image: url('/img/background.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -49,6 +43,10 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+ul {
+  list-style: none;
 }
 
 h1 {
@@ -78,6 +76,10 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.nav-title {
+  font-family: 'nanumSquareNeo';
 }
 
 .nav p:nth-child(1) {
@@ -118,6 +120,14 @@ button {
   cursor: pointer;
   gap: 25px;
   /* margin: 0 0 10px 0; */
+}
+
+.items > span {
+  border-bottom: 2px solid white;
+  width: 200px;
+  cursor: default;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 }
 
 .item-index {
@@ -172,42 +182,54 @@ img {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   padding: 2em 0;
+  font-style: italic;
 }
 
 .overlay-header__project--info:nth-child(1) {
   flex: 8;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 30px;
 }
 
 .overlay-header__project--info:nth-child(1) p {
   transform: rotate(-0.03deg);
-  color: #444444;
+  color: #181818;
 }
 
 .overlay-header__project--info:nth-child(1) p:nth-child(1) {
-  font-size: 2.2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: oblique;
 }
 
 .overlay-header__project--info:nth-child(1) p:nth-child(2) {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .overlay-header__project--info:nth-child(1) p:nth-child(3) {
-  font-size: 1.15rem;
+  width: 100%;
+  font-size: 1rem;
+  color: #181818;
 }
 
 .overlay-header__project--info:nth-child(2) {
   flex: 2;
+  display: flex;
+  justify-content: center; /* Align the Close button to the right */
+  align-items: baseline; /* Vertically align with projectName */
 }
 
 #close-btn {
   cursor: pointer;
-  opacity: 0.8;
   font-weight: bold;
+  padding-top: 15px;
+}
+
+#close-btn:hover {
+  opacity: 0.8;
 }
 
 .overlay-section {
@@ -215,12 +237,14 @@ img {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 1em 0 3em 0;
+  padding: 1em 0 1em 0;
 }
 
-.overlay-section > p:nth-child(1) {
+.overlay-section > div:nth-child(1) {
   display: flex;
   gap: 20px;
+
+  font-style: oblique;
 }
 
 .overlay-section > p:nth-child(2) {
@@ -234,38 +258,52 @@ img {
 
 .overlay-section > p > a {
   font-optical-sizing: auto;
-  font-weight: 700;
-  color: #444444;
+  font-weight: 600;
+  color: #333333;
 }
 
-.overlay-section p:nth-child(1) {
+.overlay-section div:nth-child(1) {
   flex: 3;
 }
 
-.overlay-section p:nth-child(1) > a {
+.overlay-section div:nth-child(1) > a {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.overlay-section p:nth-child(1) > a:nth-child(1) > svg {
+.overlay-section div:nth-child(1) > a:nth-child(1) > svg {
   width: 30px;
 }
 
-.overlay-section p:nth-child(1) > a:nth-child(3) > svg {
+.overlay-section div:nth-child(1) > a:nth-child(3) > svg {
   width: 23px;
 }
 
-.overlay-section p:nth-child(1) > a > svg {
+.overlay-section div:nth-child(1) > a > svg {
   width: 20px;
 }
 
 .overlay-section p:nth-child(2) {
   flex: 2;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   letter-spacing: 0.15px;
   line-height: 2;
-  font-family: 'GowunBatang-Bold';
+}
+
+.overlay-overview {
+  letter-spacing: 1px;
+  line-height: 2;
+}
+
+.headline {
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.overlay-overview p {
+  font-family: 'nanumSquareNeo';
+  text-align: justify;
 }
 
 .overlay-videoSection > p {
@@ -298,8 +336,9 @@ img {
   margin-top: 100px;
 }
 .about .about-container > div > h1,
-p {
-  font-family: 'GowunBatang-Bold';
+.about .about-container > div > p {
+  /* font-family: 'GowunBatang-Bold'; */
+  font-family: 'nanumSquareNeo';
   font-optical-sizing: auto;
   font-style: normal;
 }

@@ -14,6 +14,6 @@ export const skills: Skills = {
   stateManagement: ['Context API', 'Zustand', 'React Query', 'Redux Toolkit'],
   styling: ['CSS', 'SCSS', 'TailwindCSS', 'Styled-Components'],
   TestingDebugging: ['Jest', 'React DevTools', 'Lighthouse'],
-  DevelopmentTools: ['GitHub', 'Firebase'],
+  DevelopmentTools: ['Firebase', 'GitHub', 'GitHub Actions'],
   ProductivityTools: ['Notion', 'Discord', 'Slack', 'Figma'],
 };

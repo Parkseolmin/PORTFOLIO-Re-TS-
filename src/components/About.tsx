@@ -10,11 +10,11 @@ export default function About() {
           <h1>소개 및 가치관</h1>
           <p>
             React를 기반으로 직관적이고 효율적인 UI 개발을 추구하는 신입
-            프론트엔드 개발자 <span>박설민</span>입니다. 입니다. 저는 팀원들과
-            협력하며 문제를 해결해 나가는 과정에서 새로운 관점을 배우고 성장하는
-            것을 중요하게 여깁니다. 교내 팀 프로젝트를 통해 협업과 소통의
-            중요성을 깊이 깨달았으며, 이러한 경험을 실무에서도 적극적으로
-            발휘하고자 합니다.
+            프론트엔드 개발자 <span>박설민</span>입니다. 저는 팀원들과 협력하며
+            문제를 해결해 나가는 과정에서 새로운 관점을 배우고 성장하는 것을
+            중요하게 여깁니다. 교내 팀 프로젝트를 통해 협업과 소통의 중요성을
+            깊이 깨달았으며, 이러한 경험을 실무에서도 적극적으로 발휘하고자
+            합니다.
           </p>
           <br />
           <p>
@@ -43,15 +43,22 @@ export default function About() {
                   flexDirection: 'column',
                   gap: '10px',
                   textAlign: 'start',
+                  marginBottom: '15px',
                 }}
               >
-                <h2 style={{ color: '#1919197d' }}>
+                <h2 style={{ color: '#1919197d', marginBottom: '10px' }}>
                   {category
                     .replace(/([A-Z])/g, ' $1') // 카멜 케이스를 공백으로 분리
                     .replace(/^./, (str) => str.toUpperCase())}{' '}
-                  :
                 </h2>
-                <p style={{ fontSize: '1.1rem' }}>- {items.join(', ')}</p>
+                <p
+                  style={{
+                    fontSize: '1.1rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  - {items.join(' | ')}
+                </p>
               </div>
             ))}
           </div>

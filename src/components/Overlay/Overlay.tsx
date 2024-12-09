@@ -53,7 +53,6 @@ export default function Overlay({
 
       {/* 프로젝트 대표 비디오 섹션 */}
       <div className='overlay-videoSection'>
-        <p>#Main Video</p>
         <video
           ref={mainVideoRef}
           controls
@@ -64,10 +63,10 @@ export default function Overlay({
           width='100%'
           style={{
             display: 'flex',
-            margin: '0 auto',
+            margin: '20px auto',
           }}
         >
-          <source src={item?.introVideo} type='video/mp4' />
+          <source src={item?.video} type='video/mp4' />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -75,17 +74,8 @@ export default function Overlay({
       {/* 프로젝트 기능 설명 섹션 */}
       <OverlayDetails item={item} />
 
-      {/* 프로젝트 디테일 비디오 섹션 */}
-      {item?.projectFunVideo ? (
-        <div>
-          <p style={{ paddingBottom: '10px' }}>#Detail Video</p>
-        </div>
-      ) : (
-        ''
-      )}
-
       <div className='itemDetailVideo'>
-        {item?.projectFunVideo?.map((video, index) => (
+        {item?.subVideo?.map((video, index) => (
           <video
             preload='auto'
             key={index}
@@ -108,14 +98,6 @@ export default function Overlay({
 
       {/* 프로젝트 문제&해결 */}
       <OverlayChallenges item={item} />
-
-      {/* 프로젝트 배운점 */}
-      <div className='learnedPoint'>
-        <p style={{ fontSize: '1.1rem' }}>Key Learnings</p>
-        {item?.learnedPoint?.map((point, index) => (
-          <p key={index}>- {point}</p>
-        ))}
-      </div>
 
       <ScrollToTopBtn handleClick={scrollToTop} />
     </div>
