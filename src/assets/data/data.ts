@@ -17,6 +17,7 @@ export interface TaskAndAchievement {
   title: string; // 작업 제목
   description: string; // 작업 설명
   achievements: string[]; // 성과 리스트
+  IndicatorImg?: string;
 }
 
 export interface LessonLearned {
@@ -33,14 +34,10 @@ export interface Projects {
   Git: string;
   overviews?: string;
   goals?: string[];
-  overviewList?: string[];
-  overviewResult?: string;
-  projectIntro?: string;
   video: string;
   subVideo?: string[];
   tasksAndAchievements?: TaskAndAchievement[];
   challenges?: Challenge[];
-  learnedPoint?: string[];
   lessonsLearned?: LessonLearned[];
 }
 
@@ -213,17 +210,19 @@ export const data: Projects[] = [
     ],
   },
   {
-    projectName: 'PAZIZIC TV WEB APP',
+    projectName: 'PAZIZIC TV',
     projectTech:
       'React | Firebase | React Query | Zustand | YouTube Data API | Google API (gapi)',
     Link: 'https://pazizic.vercel.app/',
     Blog: 'https://snowman-seolmini.tistory.com/84',
     Git: 'https://github.com/Parkseolmin/React_Youtube',
     overviews:
-      'PAZIZIC-TV는 React를 활용해 비동기 처리와 성능 최적화에 중점을 두고 개발한 사용자 맞춤형 미디어 플랫폼입니다. 이 프로젝트는 YouTube Open API를 활용한 데이터 표시에서 출발해, 사용자 경험을 강화하고 성능 문제를 해결하는 다양한 기능 구현으로 발전했습니다.',
+      'PAZIZIC-TV는 React를 기반으로 설계된 사용자 맞춤형 미디어 플랫폼으로, YouTube Open API를 활용해 실시간 데이터와 개인화된 콘텐츠를 제공합니다. React Query와 Zustand를 사용해 비동기 데이터 관리와 캐싱을 최적화했으며, React.memo와 useCallback으로 렌더링 병목 구간을 해결해 성능을 향상시켰습니다. Firebase와 Google OAuth 2.0 인증을 통해 안전한 로그인 환경과 사용자 맞춤형 콘텐츠를 제공하며, 성능 최적화와 사용자 중심 설계를 통해 프론트엔드 기술을 실질적으로 적용한 프로젝트입니다.',
     goals: [
-      '- React 기술의 깊이를 더하며, 성능 최적화와 안정적인 사용자 경험 제공.',
-      '- API 호출 최적화와 병목 해결로 효율성을 개선하고, 개인화된 콘텐츠 제공을 구현.',
+      '- React를 활용한 상태 관리, 비동기 처리, 컴포넌트 설계 등 핵심 기술을 학습하며 안정적이고 직관적인 사용자 경험 제공.',
+      '- API 호출 최적화와 데이터 병목 현상 해결을 통해 효율적인 데이터 흐름과 응답 속도로 성능 극대화.',
+      '- Firebase와 OAuth 2.0을 기반으로 사용자 맞춤형 데이터 관리와 개인화된 콘텐츠 제공.',
+      '- 진단 도구를 활용해 성능 문제를 분석하고, 데이터 기반 최적화 기술을 습득 및 적용.',
     ],
     video: '/img/pazizic/pazizic.mp4',
     subVideo: pazizic_videos,
@@ -265,6 +264,7 @@ export const data: Projects[] = [
           '초기 로딩 속도 40% 개선',
           'React.memo로 상위 상태 변화에 영향을 받던 하위 컴포넌트 렌더링 제거',
         ],
+        IndicatorImg: 'img/pazizic/Detailed_Indicator_Analysis.png',
       },
       {
         title: '사용자 맞춤 콘텐츠 제공',
@@ -304,7 +304,7 @@ export const data: Projects[] = [
               'useCallback으로 함수를 메모이제이션하여 불필요한 렌더링 방지.',
               'React Query의 staleTime을 조정하여 데이터 호출 빈도를 최적화.',
             ],
-            ProblemResultImg: 'img/pazizic/optimizationResults.png',
+            ProblemResultImg: 'img/pazizic/Optimization_Results.png',
             ProblemResult:
               '렌더링 시간이 60% 단축되었고, API 호출 빈도가 65% 감소하며 메모리 사용량도 27% 줄었습니다.',
           },

@@ -34,6 +34,13 @@ const OverlayDetails = React.memo(function OverlayDetails({
           <section>
             <h4 style={{ color: '#555', marginBottom: '10px' }}>성과</h4>
             <ul style={{ color: '#444', lineHeight: '2' }}>
+              {task.IndicatorImg && (
+                <img
+                  src={task.IndicatorImg}
+                  alt={`Detailed Indicator Analysis for ${task.IndicatorImg}`}
+                  style={{ maxWidth: '650px', padding: '20px 5px' }}
+                />
+              )}
               {task.achievements.map((achievement) => (
                 <li key={achievement} style={{ marginBottom: '5px' }}>
                   - {achievement}
