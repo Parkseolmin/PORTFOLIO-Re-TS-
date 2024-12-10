@@ -38,7 +38,10 @@ const OverlayDetails = React.memo(function OverlayDetails({
                 <img
                   src={task.IndicatorImg}
                   alt={`Detailed Indicator Analysis for ${task.IndicatorImg}`}
-                  style={{ maxWidth: '650px', padding: '20px 5px' }}
+                  style={{
+                    maxWidth: '750px',
+                    padding: '20px 5px',
+                  }}
                 />
               )}
               {task.achievements.map((achievement) => (
