@@ -37,7 +37,7 @@ export interface Projects {
   video: string;
   subVideo?: string[];
   tasksAndAchievements?: TaskAndAchievement[];
-  challenges?: Challenge[];
+  challenges: Challenge[];
   lessonsLearned?: LessonLearned[];
 }
 
@@ -95,16 +95,16 @@ export const data: Projects[] = [
           'TextArea를 활용한 자유 입력 텍스트 분석 기능으로 다양한 시나리오 지원',
         ],
       },
-      {
-        title: '테스트 자동화',
-        description:
-          'Jest와 React Testing Library를 사용해 주요 컴포넌트와 사용자 흐름을 검증하는 자동화 테스트를 작성했습니다.',
-        achievements: [
-          '현재 컴포넌트 단위 테스트와 사용자 시나리오 테스트 결합을 통해 70% 이상의 테스트 커버리지를 달성',
-          'React Router와 Context API를 mocking하여 네비게이션과 전역 상태를 안정적으로 검증',
-          '테스트 자동화를 통해 주요 로직의 안정성을 확보하며 코드 품질 유지',
-        ],
-      },
+      // {
+      //   title: '테스트 자동화',
+      //   description:
+      //     'Jest와 React Testing Library를 사용해 주요 컴포넌트와 사용자 흐름을 검증하는 자동화 테스트를 작성했습니다.',
+      //   achievements: [
+      //     '현재 컴포넌트 단위 테스트와 사용자 시나리오 테스트 결합을 통해 70% 이상의 테스트 커버리지를 달성',
+      //     'React Router와 Context API를 mocking하여 네비게이션과 전역 상태를 안정적으로 검증',
+      //     '테스트 자동화를 통해 주요 로직의 안정성을 확보하며 코드 품질 유지',
+      //   ],
+      // },
       {
         title: 'CI/CD 파이프라인 구축',
         description:
