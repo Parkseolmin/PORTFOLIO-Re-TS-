@@ -15,5 +15,5 @@ export const skills: Skills = {
   styling: ['CSS', 'SCSS', 'TailwindCSS', 'Styled-Components'],
   TestingDebugging: ['Jest', 'React DevTools', 'Lighthouse'],
   DevelopmentTools: ['Firebase', 'GitHub', 'GitHub Actions'],
-  ProductivityTools: ['Notion', 'Discord', 'Slack', 'Figma'],
+  ProductivityTools: ['Notion', 'Discord', 'Slack', 'Adobe XD'],
 };
