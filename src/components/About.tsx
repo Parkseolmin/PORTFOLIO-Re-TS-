@@ -46,7 +46,7 @@ export default function About() {
                   marginBottom: '15px',
                 }}
               >
-                <h2 style={{ color: '#1919197d', marginBottom: '10px' }}>
+                <h2 style={{ color: '#ffffff', marginBottom: '10px' }}>
                   {category
                     .replace(/([A-Z])/g, ' $1') // 카멜 케이스를 공백으로 분리
                     .replace(/^./, (str) => str.toUpperCase())}{' '}
@@ -55,6 +55,7 @@ export default function About() {
                   style={{
                     fontSize: '1.1rem',
                     fontWeight: 'bold',
+                    color: 'rgba(255, 255, 255, 0.792)',
                   }}
                 >
                   - {items.join(' | ')}
