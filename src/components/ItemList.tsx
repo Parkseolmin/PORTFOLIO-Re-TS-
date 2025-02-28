@@ -12,9 +12,7 @@ export default function ItemList({ items, onItemClick }: ItemListProps) {
       {items.map((item, index) => (
         <div key={index} className='item' onClick={() => onItemClick(item)}>
           <div className='item-index'>{String(index + 1).padStart(2, '0')}</div>
-          <div className='item-name' style={{ textTransform: 'uppercase' }}>
-            {item.projectName}
-          </div>
+          <div className='item-name'>{item.projectName}</div>
         </div>
       ))}
     </div>
