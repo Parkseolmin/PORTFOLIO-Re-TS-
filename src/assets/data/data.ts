@@ -83,7 +83,7 @@ export const data: Projects[] = [
         description:
           'CSS Modules와 반응형 디자인을 적용해 다양한 디바이스에서 일관되고 최적화된 사용자 경험을 제공했습니다.',
         achievements: [
-          'Largest Contentful Paint(LCP)를 3.15초에서 551ms로 단축하여 초기 로딩 속도를 대폭 향상',
+          'Largest Contentful Paint(LCP)를 3.15초에서 0.54초로 단축하여 초기 로딩 속도를 대폭 향상',
           'CSS Modules와 반응형 디자인으로 모바일, 태블릿, 데스크톱 환경에서 일관된 사용자 경험 제공',
           'Lighthouse 종합 진단 평균 점수를 98점으로 향상하여 웹 표준 준수',
         ],
@@ -99,16 +99,6 @@ export const data: Projects[] = [
           'TextArea를 활용한 자유 입력 텍스트 분석 기능으로 다양한 시나리오 지원',
         ],
       },
-      // {
-      //   title: '테스트 자동화',
-      //   description:
-      //     'Jest와 React Testing Library를 사용해 주요 컴포넌트와 사용자 흐름을 검증하는 자동화 테스트를 작성했습니다.',
-      //   achievements: [
-      //     '현재 컴포넌트 단위 테스트와 사용자 시나리오 테스트 결합을 통해 70% 이상의 테스트 커버리지를 달성',
-      //     'React Router와 Context API를 mocking하여 네비게이션과 전역 상태를 안정적으로 검증',
-      //     '테스트 자동화를 통해 주요 로직의 안정성을 확보하며 코드 품질 유지',
-      //   ],
-      // },
       {
         title: 'CI/CD 파이프라인 구축',
         description:
@@ -136,9 +126,9 @@ export const data: Projects[] = [
             ProblemSituation:
               'Momentum 프로젝트의 배경 이미지를 동적으로 로드하기 위해 이미지를 불러오는 훅을 구현했으나, 상태 업데이트와 컴포넌트 리렌더링 간의 불일치로 문제가 발생했습니다.',
             ProblemSolution: [
-              'API 호출 로직을 useQuery와 useEffect로 이원화했던 기존 구조를 단일화하여 중복 호출과 비동기 처리 간의 충돌을 방지.',
-              'useEffect 내부에서 API 호출 로직을 비동기로 관리하고, 결과를 React 상태와 로컬 스토리지에 저장하여 데이터의 일관성을 유지.',
-              'useEffect의 의존성 배열에 데이터를 포함해 상태 변화가 즉시 반영되도록 재설계.',
+              '1. API 호출 로직을 useQuery와 useEffect로 이원화했던 기존 구조를 단일화하여 중복 호출과 비동기 처리 간의 충돌을 방지.',
+              '2. useEffect 내부에서 API 호출 로직을 비동기로 관리하고, 결과를 React 상태와 로컬 스토리지에 저장하여 데이터의 일관성을 유지.',
+              '3. useEffect의 의존성 배열에 데이터를 포함해 상태 변화가 즉시 반영되도록 재설계.',
             ],
             ProblemResult:
               '상태와 데이터 간 불일치 문제를 해결하여 배경 이미지가 항상 최신 상태로 반영되었습니다.',
@@ -159,7 +149,8 @@ export const data: Projects[] = [
               '5. ARIA 속성을 추가하고, 콘텐츠 크기를 명확히 설정하여 접근성과 시각적 일관성을 동시에 개선.',
             ],
             ProblemResult:
-              'LCP를 3.15초에서 551ms로 단축하여 초기 로딩 속도를 대폭 개선하였으며, React.memo와 useCallback을 통한 렌더링 최적화로 사용자 경험과 성능이 크게 향상되었습니다.',
+              'LCP를 3.15초에서 0.54초로 단축하여 초기 로딩 속도를 대폭 개선하였으며, React.memo와 useCallback을 통한 렌더링 최적화로 사용자 경험과 성능이 크게 향상되었습니다.',
+            ProblemResultImg: 'img/momentum/Opt_Results.jpg',
           },
         ],
       },
@@ -172,7 +163,7 @@ export const data: Projects[] = [
             ProblemSolution: [
               '1. 테스트 단계의 지연 문제 해결 : 오래된 패키지와 불필요한 의존성으로 인한 지연을 해결하기 위해 npm audit fix를 실행해 취약점을 자동으로 패치하고 주요 의존성을 최신 버전으로 업데이트.',
               '2. Node.js 버전 안정화 : 최신 베타 버전의 불안정성을 해결하기 위해 CI/CD 파이프라인에서 Node.js LTS 버전(16)을 사용하도록 변경.',
-              '3. Vercel 토큰 문제 해결 : npx vercel --prod --yes 옵션에서 발생한 문제를 npx vercel --prod --token=$VERCEL_TOKEN으로 수정하여 명시적으로 토큰을 전달하도록 변경.',
+              '3. Vercel 토큰 문제 해결 : Vercel 배포 과정에서 토큰 인증 오류가 발생하여, 자동 로그인 대신 인증 토큰을 명시적으로 지정하는 방식으로 수정하여 문제를 해결.',
             ],
             ProblemResult:
               'main 브랜치에 병합된 코드가 자동으로 테스트되고, 테스트를 통과하면 Vercel에 안정적으로 배포되도록 설정했습니다. 이로써 작업 효율성과 배포 신뢰성을 높이고, 테스트와 배포 프로세스에서 발생할 수 있는 잠재적 오류를 방지하며 개발 생산성을 크게 향상시켰습니다.',
