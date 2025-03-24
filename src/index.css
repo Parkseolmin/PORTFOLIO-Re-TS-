@@ -33,7 +33,7 @@ body {
   /* font-family: 'Aeonik', sans-serif; */
   /* font-family: 'GowunBatang-Bold'; */
   font-family: 'nanumSquareNeo';
-  background-image: url('/img/background1.jpg');
+  background-image: url('/img/background06.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -326,6 +326,7 @@ img {
 
 .about-container {
   width: 100%;
+  max-width: 1300px;
   text-align: justify;
   background-color: rgba(0, 0, 0, 0.15);
   padding: 50px 50px;
